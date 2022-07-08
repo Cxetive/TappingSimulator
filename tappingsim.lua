@@ -27,11 +27,11 @@ local a2 = a:Channel("Teleport")
 a2:Button("Teleport to Best Area", function()
     game.Players.LocalPlayer.Character:MoveTo("-300.061, 11236.1, -239.35")
     end)
-    a1:Button("Bring Enchantment", function()
+a2:Button("Bring Enchantment", function()
     doTPEnch()
     end)
 
-a2:Toggle("Auto Tap", false, function(bool)
+a1:Toggle("Auto Tap", false, function(bool)
     _G.autotap = bool
     print("Auto Tep set to: ", bool)
     if bool then 
