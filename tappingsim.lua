@@ -1,5 +1,7 @@
 repeat wait() until game:IsLoaded()
 
+local Folder = Instance:n
+
 local UI = loadstring(game:HttpGet"https://raw.githubusercontent.com/dawid-scripts/UI-Libs/main/discord%20lib.txt")()
 
 local win = UI:Window("Tapping Sim")
@@ -10,7 +12,10 @@ a1:Toggle("Auto Tap", false, function(bool)
     _G.autotap = bool
     print("Auto Tep set to: ", bool)
     if bool then 
+        UI:Notification("Success", "Auto Tap Enabled", "Okay!")
         doTap()
+    else
+        UI:Notification("Success", "Auto Tap Disabled", "Okay!")
     end
 end)
 
