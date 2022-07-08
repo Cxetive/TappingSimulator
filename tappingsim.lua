@@ -1,3 +1,5 @@
+_G.authkey = "HDAOFHAF194DHF"
+
 repeat wait() until game:IsLoaded()
 
 local Folder = Instance.new("Folder", game.ReplicatedStorage)
