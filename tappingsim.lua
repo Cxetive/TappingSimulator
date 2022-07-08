@@ -5,7 +5,7 @@ print(oldpos)
 local Folder = Instance.new("Folder", game.ReplicatedStorage)
 Folder.Name = "Prox"
 
-game.Players.LocalPlayer.Character:MoveTo(37.2773, 9.55834, -581.942)
+game.Players.LocalPlayer.Character:MoveTo("37.2773, 9.55834, -581.942")
 
 local clone = game.Workspace.Proximity.Enchantment:Clone()
 clone.Parent = game.ReplicatedStorage.Prox
