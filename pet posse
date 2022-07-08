@@ -1,0 +1,387 @@
+-- Decompiled with the Synapse X Luau decompiler.
+
+local l____REMOTES__1 = workspace.__THINGS.__REMOTES;
+local l__UI__2 = game.ReplicatedStorage.Assets.UI;
+local l__resizeScrollingFrame__1 = l____REMOTES__1.resizeScrollingFrame;
+local l__Pet__2 = l__UI__2.Inventory.Pet;
+local u3 = {
+	petIcons = {
+		Cat = "http://www.roblox.com/asset/?id=9417169968", 
+		Dog = "http://www.roblox.com/asset/?id=9195783279", 
+		Cow = "http://www.roblox.com/asset/?id=9195753679", 
+		Pig = "http://www.roblox.com/asset/?id=9195755591", 
+		Chicken = "http://www.roblox.com/asset/?id=9195757796", 
+		["Friendly Spirit"] = "http://www.roblox.com/asset/?id=9195760051", 
+		Rat = "http://www.roblox.com/asset/?id=9335958273", 
+		Bunny = "http://www.roblox.com/asset/?id=9335960476", 
+		Goat = "http://www.roblox.com/asset/?id=9335968627", 
+		Lamb = "http://www.roblox.com/asset/?id=9335967054", 
+		Owl = "http://www.roblox.com/asset/?id=9335962489", 
+		["Meadow Spirit"] = "http://www.roblox.com/asset/?id=9335971098", 
+		["Komodo Dragon"] = "http://www.roblox.com/asset/?id=9336572237", 
+		Rhinoceros = "http://www.roblox.com/asset/?id=9336574159", 
+		Tiger = "http://www.roblox.com/asset/?id=9336576121", 
+		Koala = "http://www.roblox.com/asset/?id=9336577703", 
+		Orangutan = "http://www.roblox.com/asset/?id=9336580978", 
+		["Mist Spirit"] = "http://www.roblox.com/asset/?id=9336582509", 
+		["Arctic Hare"] = "http://www.roblox.com/asset/?id=9337186557", 
+		["Polar Bear"] = "http://www.roblox.com/asset/?id=9337187785", 
+		Penguin = "http://www.roblox.com/asset/?id=9337188874", 
+		Seal = "http://www.roblox.com/asset/?id=9337190463", 
+		["Musk Ox"] = "http://www.roblox.com/asset/?id=9337191997", 
+		["Snow Spirit"] = "http://www.roblox.com/asset/?id=9337193248", 
+		["Desert Fox"] = "http://www.roblox.com/asset/?id=9417174918", 
+		Lizard = "http://www.roblox.com/asset/?id=9417176741", 
+		Snake = "http://www.roblox.com/asset/?id=9417178386", 
+		["Summer Snake"] = "http://www.roblox.com/asset/?id=9417180272", 
+		["Winter Snake"] = "http://www.roblox.com/asset/?id=9417182412", 
+		["Cactus Spirit"] = "http://www.roblox.com/asset/?id=9417184402", 
+		["Fire Cat"] = "http://www.roblox.com/asset/?id=9417186215", 
+		["Fire Dog"] = "http://www.roblox.com/asset/?id=9417187704", 
+		Firecorn = "http://www.roblox.com/asset/?id=9417189316", 
+		Dragon = "http://www.roblox.com/asset/?id=9417190772", 
+		["Night Dragon"] = "http://www.roblox.com/asset/?id=9417192541", 
+		["Lava Spirit"] = "http://www.roblox.com/asset/?id=9417194703", 
+		["Crystal Cat"] = "http://www.roblox.com/asset/?id=9417196631", 
+		["Crystal Dog"] = "http://www.roblox.com/asset/?id=9417198433", 
+		["Crystal Dragon"] = "http://www.roblox.com/asset/?id=9417201233", 
+		Crystalcorn = "http://www.roblox.com/asset/?id=9417203247", 
+		Cerberus = "http://www.roblox.com/asset/?id=9417204820", 
+		["Mystical Spirit"] = "http://www.roblox.com/asset/?id=9417206690", 
+		["Golden Cat"] = "http://www.roblox.com/asset/?id=9417208429", 
+		["Golden Dog"] = "http://www.roblox.com/asset/?id=9417210458", 
+		["Golden Owl"] = "http://www.roblox.com/asset/?id=9417212081", 
+		["Golden Tiger"] = "http://www.roblox.com/asset/?id=9417213491", 
+		["Golden Koala"] = "http://www.roblox.com/asset/?id=9417215250", 
+		["Golden Monkey"] = "http://www.roblox.com/asset/?id=9417216768", 
+		["Sea Urchin"] = "http://www.roblox.com/asset/?id=9915353558", 
+		Goldfish = "http://www.roblox.com/asset/?id=9915354970", 
+		Redfish = "http://www.roblox.com/asset/?id=9915356117", 
+		Swordfish = "http://www.roblox.com/asset/?id=9915357640", 
+		["Silver Swordfish"] = "http://www.roblox.com/asset/?id=10089051108", 
+		["Sea Spirit"] = "http://www.roblox.com/asset/?id=9915360044", 
+		["Tiki Cat"] = "http://www.roblox.com/asset/?id=9922143163", 
+		["Tiki Dog"] = "http://www.roblox.com/asset/?id=9922145545", 
+		["Tiki Dragon"] = "http://www.roblox.com/asset/?id=9922152708", 
+		Tikicorn = "http://www.roblox.com/asset/?id=9922154878", 
+		["Tiki Monkey"] = "http://www.roblox.com/asset/?id=9922157428", 
+		["Tiki Spirit"] = "http://www.roblox.com/asset/?id=9922160222", 
+		Jellyfish = "http://www.roblox.com/asset/?id=9922217154", 
+		Hammerhead = "http://www.roblox.com/asset/?id=9922305704", 
+		Toucan = "http://www.roblox.com/asset/?id=9922239724", 
+		Turtle = "http://www.roblox.com/asset/?id=9922260079", 
+		Shark = "http://www.roblox.com/asset/?id=9922308034", 
+		["Tropical Spirit"] = "http://www.roblox.com/asset/?id=9922310427", 
+		["Splash Cat"] = "http://www.roblox.com/asset/?id=10088697781", 
+		Gull = "http://www.roblox.com/asset/?id=10088700514", 
+		["Lifeguard Shark"] = "http://www.roblox.com/asset/?id=10088708010", 
+		Otter = "http://www.roblox.com/asset/?id=10088710735", 
+		["Splash Penguin"] = "http://www.roblox.com/asset/?id=10088713545", 
+		["Alfred Dog"] = "http://www.roblox.com/asset/?id=9704275984", 
+		Horse = "http://www.roblox.com/asset/?id=9704277549", 
+		["Knight Dragon"] = "http://www.roblox.com/asset/?id=9704279353", 
+		["Light Knight Spirit"] = "http://www.roblox.com/asset/?id=9704281529", 
+		["Dark Knight Spirit"] = "http://www.roblox.com/asset/?id=9704282995", 
+		["Summer Cat"] = "http://www.roblox.com/asset/?id=9922371071", 
+		["Summer Shark"] = "http://www.roblox.com/asset/?id=9922372691", 
+		Sharkano = "http://www.roblox.com/asset/?id=9922375410", 
+		["Summer Spirit"] = "http://www.roblox.com/asset/?id=9922377871", 
+		["July Dog"] = "http://www.roblox.com/asset/?id=10117003567", 
+		["Firework Cat"] = "http://www.roblox.com/asset/?id=10110595280", 
+		["Firework Spirit"] = "http://www.roblox.com/asset/?id=10110597569", 
+		["Huge Cat"] = "http://www.roblox.com/asset/?id=9740667568", 
+		["Huge Dog"] = "http://www.roblox.com/asset/?id=9740390651", 
+		["Huge Cow"] = "http://www.roblox.com/asset/?id=9740375661", 
+		["Huge Pig"] = "http://www.roblox.com/asset/?id=9740388727", 
+		["Huge Chicken"] = "http://www.roblox.com/asset/?id=9740379633", 
+		["Huge Friendly Spirit"] = "http://www.roblox.com/asset/?id=9740806766", 
+		["Huge Rat"] = "http://www.roblox.com/asset/?id=9740392815", 
+		["Huge Bunny"] = "http://www.roblox.com/asset/?id=9740602935", 
+		["Huge Goat"] = "http://www.roblox.com/asset/?id=9740319532", 
+		["Huge Lamb"] = "http://www.roblox.com/asset/?id=9740317366", 
+		["Huge Owl"] = "http://www.roblox.com/asset/?id=9740315223", 
+		["Huge Meadow Spirit"] = "http://www.roblox.com/asset/?id=9740321765", 
+		["Huge Komodo Dragon"] = "http://www.roblox.com/asset/?id=9740271138", 
+		["Huge Rhinoceros"] = "http://www.roblox.com/asset/?id=9740277496", 
+		["Huge Tiger"] = "http://www.roblox.com/asset/?id=9740278877", 
+		["Huge Koala"] = "http://www.roblox.com/asset/?id=9740606534", 
+		["Huge Orangutan"] = "http://www.roblox.com/asset/?id=9740609029", 
+		["Huge Mist Spirit"] = "http://www.roblox.com/asset/?id=9740611380", 
+		["Huge Arctic Hare"] = "http://www.roblox.com/asset/?id=9740614055", 
+		["Huge Polar Bear"] = "http://www.roblox.com/asset/?id=9740219506", 
+		["Huge Penguin"] = "http://www.roblox.com/asset/?id=9740221922", 
+		["Huge Seal"] = "http://www.roblox.com/asset/?id=9740615401", 
+		["Huge Musk Ox"] = "http://www.roblox.com/asset/?id=9740223195", 
+		["Huge Snow Spirit"] = "http://www.roblox.com/asset/?id=9740618525", 
+		["Huge Desert Fox"] = "http://www.roblox.com/asset/?id=9719489183", 
+		["Huge Lizard"] = "http://www.roblox.com/asset/?id=9719490361", 
+		["Huge Snake"] = "http://www.roblox.com/asset/?id=9719503953", 
+		["Huge Summer Snake"] = "http://www.roblox.com/asset/?id=9719495801", 
+		["Huge Winter Snake"] = "http://www.roblox.com/asset/?id=9719496785", 
+		["Huge Cactus Spirit"] = "http://www.roblox.com/asset/?id=9740621904", 
+		["Huge Fire Cat"] = "http://www.roblox.com/asset/?id=9740951214", 
+		["Huge Fire Dog"] = "http://www.roblox.com/asset/?id=9741036438", 
+		["Huge Firecorn"] = "http://www.roblox.com/asset/?id=9741038316", 
+		["Huge Dragon"] = "http://www.roblox.com/asset/?id=9741039944", 
+		["Huge Night Dragon"] = "http://www.roblox.com/asset/?id=9741042088", 
+		["Huge Lava Spirit"] = "http://www.roblox.com/asset/?id=9740631769", 
+		["Huge Crystal Cat"] = "http://www.roblox.com/asset/?id=9719507417", 
+		["Huge Crystal Dog"] = "http://www.roblox.com/asset/?id=9719508575", 
+		["Huge Crystal Dragon"] = "http://www.roblox.com/asset/?id=9719509482", 
+		["Huge Crystalcorn"] = "http://www.roblox.com/asset/?id=9719511795", 
+		["Huge Cerberus"] = "http://www.roblox.com/asset/?id=9719512738", 
+		["Huge Mystical Spirit"] = "http://www.roblox.com/asset/?id=9740624991", 
+		["Huge Golden Cat"] = "http://www.roblox.com/asset/?id=9719506415", 
+		["Huge Golden Dog"] = "http://www.roblox.com/asset/?id=9719518824", 
+		["Huge Golden Owl"] = "http://www.roblox.com/asset/?id=9719520313", 
+		["Huge Golden Tiger"] = "http://www.roblox.com/asset/?id=9719522261", 
+		["Huge Golden Koala"] = "http://www.roblox.com/asset/?id=9741139745", 
+		["Huge Golden Monkey"] = "http://www.roblox.com/asset/?id=9741142328", 
+		["Huge Alfred Dog"] = "http://www.roblox.com/asset/?id=9719385629", 
+		["Huge Horse"] = "http://www.roblox.com/asset/?id=9719384681", 
+		["Huge Knight Dragon"] = "http://www.roblox.com/asset/?id=9755749628", 
+		["Huge Light Knight Spirit"] = "http://www.roblox.com/asset/?id=9755751379", 
+		["Huge Dark Knight Spirit"] = "http://www.roblox.com/asset/?id=9755753140", 
+		["Huge Sea Urchin"] = "http://www.roblox.com/asset/?id=9922779634", 
+		["Huge Goldfish"] = "http://www.roblox.com/asset/?id=9922781084", 
+		["Huge Redfish"] = "http://www.roblox.com/asset/?id=9922782961", 
+		["Huge Swordfish"] = "http://www.roblox.com/asset/?id=9922784621", 
+		["Huge Silver Swordfish"] = "http://www.roblox.com/asset/?id=9922786533", 
+		["Huge Sea Spirit"] = "http://www.roblox.com/asset/?id=9922788271", 
+		["Huge Tiki Cat"] = "http://www.roblox.com/asset/?id=9922790582", 
+		["Huge Tiki Dog"] = "http://www.roblox.com/asset/?id=9922790582", 
+		["Huge Tiki Dragon"] = "http://www.roblox.com/asset/?id=9922793923", 
+		["Huge Tikicorn"] = "http://www.roblox.com/asset/?id=9922795402", 
+		["Huge Tiki Monkey"] = "http://www.roblox.com/asset/?id=9922799593", 
+		["Huge Tiki Spirit"] = "http://www.roblox.com/asset/?id=9922805188", 
+		["Huge Jellyfish"] = "http://www.roblox.com/asset/?id=9922806270", 
+		["Huge Hammerhead"] = "http://www.roblox.com/asset/?id=9922807529", 
+		["Huge Toucan"] = "http://www.roblox.com/asset/?id=9922808478", 
+		["Huge Turtle"] = "http://www.roblox.com/asset/?id=9922809790", 
+		["Huge Shark"] = "http://www.roblox.com/asset/?id=9922811449", 
+		["Huge Tropical Spirit"] = "http://www.roblox.com/asset/?id=9922812932", 
+		["Huge Splash Cat"] = "http://www.roblox.com/asset/?id=10088673253", 
+		["Huge Gull"] = "http://www.roblox.com/asset/?id=10088675919", 
+		["Huge Lifeguard Shark"] = "http://www.roblox.com/asset/?id=10088688724", 
+		["Huge Otter"] = "http://www.roblox.com/asset/?id=10088690485", 
+		["Huge Splash Penguin"] = "http://www.roblox.com/asset/?id=10088692857", 
+		["Huge Summer Cat"] = "http://www.roblox.com/asset/?id=9922814052", 
+		["Huge Summer Shark"] = "http://www.roblox.com/asset/?id=9922815438", 
+		["Huge Sharkano"] = "http://www.roblox.com/asset/?id=9922817299", 
+		["Huge Summer Spirit"] = "http://www.roblox.com/asset/?id=9922819234", 
+		["Huge July Dog"] = "http://www.roblox.com/asset/?id=10117013312", 
+		["Huge Firework Cat"] = "http://www.roblox.com/asset/?id=10110567368", 
+		["Huge Firework Spirit"] = "http://www.roblox.com/asset/?id=10110568701", 
+		["Huge Watermelon Spirit"] = "http://www.roblox.com/asset/?id=10117015831"
+	}
+};
+local u4 = require(game.ReplicatedStorage.Framework.Modules.Server.abbreviateNumber);
+local l__Rarities__5 = l__UI__2.Rarities;
+local l__InfoOverlay__6 = game.ReplicatedStorage.Assets.InfoOverlay;
+local l__clickSound__7 = l____REMOTES__1.clickSound;
+local u8 = require(game.ServerScriptService:WaitForChild("Framework").Modules.SanityChecks);
+local u9 = require(game.ServerScriptService:WaitForChild("Framework").Modules.EquipPet);
+local u10 = require(game.ServerScriptService:WaitForChild("Framework").Modules.MerchantData);
+local u11 = require(game.ServerScriptService:WaitForChild("Framework").Modules.UpgradeData);
+function u3.addPet(p1, p2, p3, p4, p5, p6, p7)
+	local l__PlayerGui__3 = p1.PlayerGui;
+	local l__Inventory__4 = l__PlayerGui__3:WaitForChild("Inventory");
+	local l__Main__5 = l__Inventory__4.Frame.Main;
+	local l__Frame__6 = l__PlayerGui__3:WaitForChild("Merchant").Frame;
+	local l__Frame__7 = l__PlayerGui__3:WaitForChild("Upgrade").Frame;
+	local l__Frame__8 = l__PlayerGui__3:WaitForChild("HugeMachine").Frame;
+	local v9 = l__Pet__2:Clone();
+	v9.Name = p2;
+	v9.PetIcon.Image = u3.petIcons[p3];
+	v9.Level.Text = "Lvl " .. p6;
+	if string.find(p3, "Huge") then
+		v9.DamageValue.Value = 100000000000000;
+		v9.Damage.Text = "???";
+	else
+		v9.DamageValue.Value = p5;
+		v9.Damage.Text = u4.abbreviate(p5);
+	end;
+	v9.LevelValue.Value = p6;
+	l__Rarities__5:FindFirstChild(p4):Clone().Parent = v9;
+	v9.Parent = l__Main__5.Pets;
+	local v10 = l__InfoOverlay__6:Clone();
+	local l__Blocks__11 = v10.Base.Blocks;
+	l__Blocks__11.Title.title.Text = p3;
+	l__Blocks__11.Title.title.Size = UDim2.new(0, l__Blocks__11.Title.title.TextSize / 2 * tonumber(string.len(p3)), 0, 0);
+	l__Blocks__11.Rarity.title.Text = " " .. p4 .. " ";
+	l__Blocks__11.Rarity.title.Size = UDim2.new(0, l__Blocks__11.Title.title.TextSize / 2 * tonumber(string.len(" " .. p4 .. " ")), 0, 0);
+	v10.Base.Name = p2;
+	l__Rarities__5:FindFirstChild(p4):Clone().Parent = l__Blocks__11.Rarity;
+	l__Blocks__11.Parent.Parent = l__Main__5.UIPadding.PetInfoOverlay;
+	v10:Destroy();
+	local u12 = nil;
+	local l__PetInfoOverlay__13 = l__Main__5.UIPadding.PetInfoOverlay;
+	v9.MouseEnter:Connect(function(p8, p9)
+		if u12 ~= nil then
+			u12.Parent = l__PetInfoOverlay__13;
+		end;
+		if #l__Inventory__4:GetChildren() > 2 then
+			for v12, v13 in pairs(l__Inventory__4:GetChildren()) do
+				if v13:IsA("Frame") and v13.Name ~= "Frame" then
+					v13.Parent = l__PetInfoOverlay__13;
+				end;
+			end;
+		end;
+		u12 = l__PetInfoOverlay__13:FindFirstChild(v9.Name);
+		if u12 ~= nil then
+			u12.Position = UDim2.new(0, p8, 0, p9);
+			u12.Parent = l__Inventory__4;
+		end;
+	end);
+	v9.MouseLeave:Connect(function()
+		if u12 ~= nil then
+			u12.Parent = l__PetInfoOverlay__13;
+		end;
+	end);
+	v9.MouseMoved:Connect(function(p10, p11)
+		if u12 ~= nil then
+			u12.Position = UDim2.new(0, p10, 0, p11);
+		end;
+	end);
+	v9.MouseButton1Click:Connect(function()
+		l__clickSound__7:FireClient(p1);
+		if u8.remoteCheck(p1) == true then
+			if p1.PlayerGui:WaitForChild("Inventory").Frame.Top.MultiDelete.ImageColor3:ToHex() ~= "fcd03b" then
+				u9.equipPet(p1, p7, p2);
+				return;
+			end;
+		else
+			return;
+		end;
+		if v9.DeleteOverlay.Visible == true then
+			v9.DeleteOverlay.Visible = false;
+			v9.PetIcon.ImageTransparency = 0.5;
+			return;
+		end;
+		v9.DeleteOverlay.Visible = true;
+		v9.PetIcon.ImageTransparency = 0;
+	end);
+	local v14 = v9:Clone();
+	v14.Parent = l__PlayerGui__3:WaitForChild("Merchant").Frame.Container.Pets;
+	v14.MouseButton1Click:Connect(function()
+		l__clickSound__7:FireClient(p1);
+		if v14.Equipped.Visible == false and not string.find(p3, "Huge") then
+			v14:Clone().Parent = l__PlayerGui__3:WaitForChild("Merchant").Frame.Side.PetIcons;
+			v14.UIStroke.Color = Color3.fromRGB(255, 255, 255);
+			v14.Equipped.Visible = true;
+			l__Frame__6.SelectedPetUID.Value = v14.Name;
+			u10.petInfo(p7, l__PlayerGui__3);
+			return;
+		end;
+		if not string.find(p3, "Huge") then
+			l__PlayerGui__3:WaitForChild("Merchant").Frame.Side.PetIcons:FindFirstChild(v14.Name):Destroy();
+			v14.UIStroke.Color = Color3.fromRGB(0, 0, 0);
+			v14.Equipped.Visible = false;
+			l__Frame__6.Side.RewardFrame.Reward.Text = 0;
+			u10.petInfo(p7, l__PlayerGui__3);
+		end;
+	end);
+	local v15 = v9:Clone();
+	v15.Parent = l__PlayerGui__3:WaitForChild("HugeMachine").Frame.Container.Pets;
+	v15.MouseButton1Click:Connect(function()
+		l__clickSound__7:FireClient(p1);
+		if v15.Equipped.Visible ~= false then
+			v15.UIStroke.Color = Color3.fromRGB(0, 0, 0);
+			v15.Equipped.Visible = false;
+			l__Frame__8.SelectedPetUID.Value = "nil";
+			return;
+		end;
+		l__Frame__8.Side.Wheel.HugePet.PetIcon.Image = u3.petIcons["Huge " .. p3];
+		for v16, v17 in pairs(l__Frame__8.Container.Pets:GetChildren()) do
+			if v17:IsA("TextButton") then
+				v17.UIStroke.Color = Color3.fromRGB(0, 0, 0);
+				v17.Equipped.Visible = false;
+			end;
+		end;
+		v15.UIStroke.Color = Color3.fromRGB(255, 255, 255);
+		v15.Equipped.Visible = true;
+		l__Frame__8.SelectedPetUID.Value = v14.Name;
+	end);
+	local v18 = v9:Clone();
+	v18.Parent = l__PlayerGui__3:WaitForChild("Upgrade").Frame.Container.Pets;
+	v18.MouseButton1Click:Connect(function()
+		l__clickSound__7:FireClient(p1);
+		if v18.Equipped.Visible ~= false then
+			l__Frame__7.Side.PetIcon.Image = "";
+			v18.UIStroke.Color = Color3.fromRGB(0, 0, 0);
+			v18.Equipped.Visible = false;
+			l__Frame__7.Side.PriceFrame.Price.Text = 0;
+			l__Frame__7.SelectedPetUID.Value = "nil";
+			return;
+		end;
+		l__Frame__7.Side.PetIcon.Image = u3.petIcons[p3];
+		for v19, v20 in pairs(l__Frame__7.Container.Pets:GetChildren()) do
+			if v20:IsA("TextButton") then
+				v20.UIStroke.Color = Color3.fromRGB(0, 0, 0);
+				v20.Equipped.Visible = false;
+			end;
+		end;
+		v18.UIStroke.Color = Color3.fromRGB(255, 255, 255);
+		v18.Equipped.Visible = true;
+		l__Frame__7.Side.Level.Text = v18.Level.Text;
+		l__Frame__7.SelectedPetUID.Value = v18.Name;
+		if v18.LevelValue.Value >= 6 then
+			l__Frame__7.Side.PriceFrame.Price.Text = "Maxed";
+			l__Frame__7.Side.Upgrade.Visible = false;
+			return;
+		end;
+		u11.petInfo(l__PlayerGui__3, v18.DamageValue.Value, v18.LevelValue.Value);
+		l__Frame__7.Side.Upgrade.Visible = true;
+	end);
+	wait(0.0001);
+	l__resizeScrollingFrame__1:FireClient(p1);
+end;
+function u3.resetMerchant(p12)
+	p12.PlayerGui.Merchant.Frame.Side.PetIcon.Image = "";
+	p12.PlayerGui.Merchant.Frame.Side.RewardFrame.Reward.Text = 0;
+	p12.PlayerGui.Merchant.Frame.SelectedPetUID.Value = "nil";
+	wait(0.0001);
+	l__resizeScrollingFrame__1:FireClient(p12);
+end;
+function u3.updateUpgrade(p13, p14, p15, p16, p17, p18)
+	local v21 = p13.PlayerGui.Upgrade.Frame.Container.Pets:FindFirstChild(p14);
+	local l__Frame__22 = p13.PlayerGui.Upgrade.Frame;
+	if v21 then
+		local v23 = workspace.__THINGS.Pets:FindFirstChild(p13.Name);
+		if v23 then
+			local v24 = v23:FindFirstChild(p14);
+			if v24 then
+				v24.Cat.PetInfo.Level.Text = "Lvl " .. p18;
+			end;
+		end;
+		local l__PlayerGui__25 = p13.PlayerGui;
+		l__PlayerGui__25.Inventory.Frame.Main.Pets:FindFirstChild(p14).Level.Text = "Lvl " .. p18;
+		l__PlayerGui__25.Merchant.Frame.Container.Pets:FindFirstChild(p14).Level.Text = "Lvl " .. p18;
+		l__PlayerGui__25.Upgrade.Frame.Container.Pets:FindFirstChild(p14).Level.Text = "Lvl " .. p18;
+		if not string.find(p15, "Huge") then
+			l__PlayerGui__25.Inventory.Frame.Main.Pets:FindFirstChild(p14).Damage.Text = u4.abbreviate(p17);
+			l__PlayerGui__25.Merchant.Frame.Container.Pets:FindFirstChild(p14).Damage.Text = u4.abbreviate(p17);
+			l__PlayerGui__25.Upgrade.Frame.Container.Pets:FindFirstChild(p14).Damage.Text = u4.abbreviate(p17);
+			l__PlayerGui__25.Inventory.Frame.Main.Pets:FindFirstChild(p14).DamageValue.Value = p17;
+			l__PlayerGui__25.Merchant.Frame.Container.Pets:FindFirstChild(p14).DamageValue.Value = p17;
+			l__PlayerGui__25.Upgrade.Frame.Container.Pets:FindFirstChild(p14).DamageValue.Value = p17;
+			v21.DamageValue.Value = p17;
+		end;
+		l__Frame__22.Side.Level.Text = "Lvl " .. p18;
+		v21.LevelValue.Value = p18;
+		if p18 >= 6 then
+			l__Frame__22.Side.PriceFrame.Price.Text = "Maxed";
+			l__Frame__22.Side.Upgrade.Visible = false;
+		else
+			u11.petInfo(p13.PlayerGui, p17, p18);
+		end;
+		wait(0.0001);
+		l__resizeScrollingFrame__1:FireClient(p13);
+	end;
+end;
+function u3.resetWheel(p19)
+	p19.PlayerGui.HugeMachine.Frame.SelectedPetUID.Value = "nil";
+	wait(0.0001);
+	l__resizeScrollingFrame__1:FireClient(p19);
+end;
+return u3;
