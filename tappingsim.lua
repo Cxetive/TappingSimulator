@@ -12,6 +12,10 @@ wait(5)
 local clone = game.Workspace.Proximity.Enchantment:Clone()
 clone.Parent = game.ReplicatedStorage.Prox
 
+wait(2)
+
+game.Players.LocalPlayer.Character:MoveTo(oldpos)
+
 local UI = loadstring(game:HttpGet"https://raw.githubusercontent.com/dawid-scripts/UI-Libs/main/discord%20lib.txt")()
 
 local win = UI:Window("Tapping Sim")
@@ -27,6 +31,10 @@ a1:Toggle("Auto Tap", false, function(bool)
     else
         UI:Notification("Success", "Auto Tap Disabled", "Okay!")
     end
+end)
+
+a1:Button("Teleport to Best Area" function()
+game.Players.LocalPlayer.Character:MoveTo("344")
 end)
 
 -- functions
