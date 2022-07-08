@@ -1,6 +1,6 @@
 repeat wait() until game:IsLoaded()
 
-local Folder = Instance.new("Folder", game.replicatedstore)
+local Folder = Instance.new("Folder", game.ReplicatedStorage)
 Folder.name = "Prox"
 
 game.players.localplayer.character:MoveTo(37.2773, 9.55834, -581.942)
