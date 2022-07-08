@@ -18,11 +18,20 @@ game.Players.LocalPlayer.Character:MoveTo(_G.oldpos)
 
 local UI = loadstring(game:HttpGet"https://raw.githubusercontent.com/dawid-scripts/UI-Libs/main/discord%20lib.txt")()
 
-local win = UI:Window("Tapping Sim")
+local win = UI:Window("Vas hub")
 local a = win:Server("Farming", "")
 local a1 = a:Channel("Auto Farming")
 
-a1:Toggle("Auto Tap", false, function(bool)
+local a2 = a:Channel("Teleport")
+
+a2:Button("Teleport to Best Area", function()
+    game.Players.LocalPlayer.Character:MoveTo("-300.061, 11236.1, -239.35")
+    end)
+    a1:Button("Bring Enchantment", function()
+    doTPEnch()
+    end)
+
+a2:Toggle("Auto Tap", false, function(bool)
     _G.autotap = bool
     print("Auto Tep set to: ", bool)
     if bool then 
@@ -48,12 +57,7 @@ a1:Dropdown("Select Rebirht Amount", {"1", "5", "10", "20", "100", "500", "2000"
     _G.amount = bool
     end)
 
-a1:Button("Teleport to Best Area", function()
-game.Players.LocalPlayer.Character:MoveTo("-300.061, 11236.1, -239.35")
-end)
-a1:Button("Bring Enchantment", function()
-doTPEnch()
-end)
+
 
 -- functions
 
@@ -63,6 +67,7 @@ function doTap()
         while _G.autotap == true do
             local Target = game:GetService("ReplicatedStorage").Events.Tap;
             Target:InvokeServer();
+            
         end
     end)
 end
@@ -86,4 +91,3 @@ function doTPEnch()
         game.workspace.Proximity.Enchantment.Position = game.Players.LocalPlayer.Character.HumanoidRootPart.Position
     end)
 end
-
