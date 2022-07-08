@@ -7,6 +7,8 @@ Folder.Name = "Prox"
 
 game.Players.LocalPlayer.Character:MoveTo("37.2773, 9.55834, -581.942")
 
+wait(5)
+
 local clone = game.Workspace.Proximity.Enchantment:Clone()
 clone.Parent = game.ReplicatedStorage.Prox
 
