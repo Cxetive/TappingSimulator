@@ -51,6 +51,9 @@ a1:Dropdown("Select Rebirht Amount", {"1", "5", "10", "20", "100", "500", "2000"
 a1:Button("Teleport to Best Area", function()
 game.Players.LocalPlayer.Character:MoveTo("-300.061, 11236.1, -239.35")
 end)
+a1:Button("Bring Enchantment", function()
+doTPEnch()
+end)
 
 -- functions
 
@@ -73,3 +76,14 @@ function doRebirth()
         end
     end)
 end
+
+function doTPEnch()
+    spawn(function()
+        local clone = game.ReplicatedStorage.Prox.Enchantment:Clone()
+        
+        clone.Parent = game.Workspace.Proximity
+        
+        game.workspace.Proximity.Enchantment.Position = game.Players.LocalPlayer.Character.HumanoidRootPart.Position
+    end)
+end
+
