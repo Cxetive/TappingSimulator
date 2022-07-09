@@ -68,8 +68,9 @@ a1:Slider("Infinite Rebirth Amount!", 0, 1000000000, 500, function(slide)
 function doTap()
     spawn(function()
         while _G.autotap == true do
+            wait(0)
             local Target = game:GetService("ReplicatedStorage").Events.Tap;
-            Target:InvokeServer();
+            Target:FireServer();
             
         end
     end)
