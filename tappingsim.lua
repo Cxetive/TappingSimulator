@@ -25,7 +25,7 @@ local a1 = a:Channel("Auto Farming")
 local a2 = a:Channel("Teleport")
 
 a2:Button("Teleport to Best Area", function()
-    game.Players.LocalPlayer.Character:MoveTo("-300.061, 11236.1, -239.35")
+    game.Players.LocalPlayer.Character:MoveTo("-428.193, 17169.8, -554.182")
     end)
 a2:Button("Bring Enchantment", function()
     doTPEnch()
